@@ -97,7 +97,7 @@
                 };
 
                 media_layer {
-   //                     bindings = <
+                        bindings = <
    //&none     &none     &none      &none   &none &none     &none       &none         &none         &none         &none         &none
    //&kp LGUI  &kp LALT  &kp LCTRL  &LSHFT  &none &none     &none       &kp C_PREV    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_NEXT    &none
    //&none     &kp RALT  &none      &none   &none &none     &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &none
