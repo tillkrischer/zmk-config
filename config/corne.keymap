@@ -42,59 +42,75 @@
                 };
 
                 tap_layer {
+                        bindings = <
    &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
    &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
    &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
                         &trans &trans &trans &trans &trans &trans
+                        >;
                 };
 
                 button_layer {
+                        bindings = <
    &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
    &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
    &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
                         &trans &trans &trans &trans &trans &trans
+                        >;
                 };
 
                 nav_layer {
+                        bindings = <
    &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
    &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
    &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
                         &trans &trans &trans &trans &trans &trans
+                        >;
                 };
 
                 mouse_layer {
+                        bindings = <
    &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
    &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
    &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
                         &trans &trans &trans &trans &trans &trans
+                        >;
                 };
 
                 media_layer {
+                        bindings = <
    &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
    &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
    &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
                         &trans &trans &trans &trans &trans &trans
+                        >;
                 };
 
                 num_layer {
+                        bindings = <
    &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
    &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
    &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
                         &trans &trans &trans &trans &trans &trans
+                        >;
                 };
 
                 sym_layer {
+                        bindings = <
    &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
    &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
    &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
                         &trans &trans &trans &trans &trans &trans
+                        >;
                 };
 
                 fun_layer {
+                        bindings = <
    &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
    &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
    &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
                         &trans &trans &trans &trans &trans &trans
+                        >;
                 };
         };
 };
