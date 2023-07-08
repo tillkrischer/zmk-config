@@ -22,14 +22,33 @@
 
 / {
         behaviors {
-          u_mt: u_mt {
+          u_mt_l: u_mt_l {
             compatible = "zmk,behavior-hold-tap";
-            label = "u_mt";
+            label = "u_mt_l";
             #binding-cells = <2>;
             tapping_term_ms = <200>;
             quick-tap-ms = <200>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
+            hold-trigger-key-posistions = <
+                6   7  8  9 10 
+                18 19 20 21 22  
+                30 31 32 33 34 
+            >
+          };
+          u_mt_r: u_mt_r {
+            compatible = "zmk,behavior-hold-tap";
+            label = "u_mt_r";
+            #binding-cells = <2>;
+            tapping_term_ms = <200>;
+            quick-tap-ms = <200>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-posistions = <
+                1   2  3  4  5 
+                13 14 15 16 17  
+                25 26 27 28 29 
+            >
           };
           u_lt: u_lt {
             compatible = "zmk,behavior-hold-tap";
@@ -46,10 +65,10 @@
 
                 default_layer {
                         bindings = <
-   &none &kp Q         &kp W            &kp E            &kp R            &kp T          &kp Y           &kp U          &kp I           &kp O           &kp P           &none 
-   &none &u_mt LGUI A  &u_mt LALT S     &u_mt LCTRL D    &u_mt LSHFT F    &kp G          &kp H           &u_mt LSHFT J  &u_mt LCTRL K   &u_mt LALT L    &u_mt LGUI SQT  &none
-   &none &kp Z         &u_mt RALT X     &kp C            &kp V            &kp B          &kp N           &kp M          &kp COMMA       &u_mt RALT DOT  &kp FSLH        &none
-                       &u_lt MEDIA ESC  &u_lt NAV SPACE  &u_lt MOUSE TAB  &u_lt SYM RET  &u_lt NUM BSPC  &u_lt FUN DEL
+   &none &kp Q           &kp W           &kp E            &kp R            &kp T                  &kp Y          &kp U            &kp I            &kp O           &kp P             &none 
+   &none &u_mt_l LGUI A  &u_mt_l LALT S  &u_mt_l LCTRL D  &u_mt_l LSHFT F  &kp G                  &kp H          &u_mt_r LSHFT J  &u_mt_r LCTRL K  &u_mt_r LALT L  &u_mt_r LGUI SQT  &none
+   &none &kp Z           &u_mt RALT X    &kp C            &kp V            &kp B                  &kp N          &kp M            &kp COMMA        &u_mt RALT DOT  &kp FSLH          &none
+                                         &u_lt MEDIA ESC  &u_lt NAV SPACE  &u_lt MOUSE TAB        &u_lt SYM RET  &u_lt NUM BSPC   &u_lt FUN DEL
                         >;
                 };
                 extra_layer {
@@ -81,55 +100,55 @@
 
                 nav_layer {
                         bindings = <
-   &none &none &none &none &none &none &none &none &none &none &none &none
-   &none &none &none &none &none &none &none &none &none &none &none &none
-   &none &none &none &none &none &none &none &none &none &none &none &none
-                     &none &none &none &none &none &none
+   &none     &none     &none      &none      &none      &none        &none &none &none &none &none &none
+   &none     &kp LGUI  &kp LALT   &kp LCTRL  &kp LSHFT  &none        &none &none &none &none &none &none
+   &none     &kp RALT  &none      &none      &none      &none        &none &none &none &none &none &none
+                                  &none      &none      &none        &none &none &none
                         >;
                 };
 
                 mouse_layer {
                         bindings = <
-   &none &none &none &none &none &none &none &none &none &none &none &none
-   &none &none &none &none &none &none &none &none &none &none &none &none
-   &none &none &none &none &none &none &none &none &none &none &none &none
-                     &none &none &none &none &none &none
+   &none     &none     &none      &none      &none      &none        &none &none &none &none &none &none
+   &none     &kp LGUI  &kp LALT   &kp LCTRL  &kp LSHFT  &none        &none &none &none &none &none &none
+   &none     &kp RALT  &none      &none      &none      &none        &none &none &none &none &none &none
+                                  &none      &none      &none        &none &none &none
                         >;
                 };
 
                 media_layer {
                         bindings = <
-   &none     &none     &none      &none      &none &none     &none       &none         &none         &none         &none         &none
-   &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHFT  &none &none     &none       &kp C_PREV    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_NEXT    &none
-   &none     &kp RALT  &none      &none      &none &none     &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &none
-                                  &none      &none &none     &kp C_STOP  &kp C_PP      &kp C_MUTE
+   &none     &none     &none      &none      &none      &none        &none       &none         &none         &none         &none         &none
+   &none     &kp LGUI  &kp LALT   &kp LCTRL  &kp LSHFT  &none        &none       &kp C_PREV    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_NEXT    &none
+   &none     &kp RALT  &none      &none      &none      &none        &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &none
+                                  &none      &none      &none        &kp C_STOP  &kp C_PP      &kp C_MUTE
                         >;
                 };
 
                 num_layer {
                         bindings = <
-   &none &none &kp N7 &kp N8 &kp N9 &none &none &none &none &none &none &none
-   &none &none &kp N4 &kp N5 &kp N6 &none &none &none &none &none &none &none
-   &none &none &kp N1 &kp N6 &kp N3 &none &none &none &none &none &none &none
-                      &none  &none  &none &none &none &none
+   &none &none &kp N7 &kp N8 &kp N9 &none                            &none &none      &none      &none     &none     &none
+   &none &none &kp N4 &kp N5 &kp N6 &none                            &none &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI  &none
+   &none &none &kp N1 &kp N6 &kp N3 &none                            &none &none      &none      &none     &kp RALT  &none
+                      &none  &none  &none                            &none &none &none
                         >;
                 };
 
                 sym_layer {
                         bindings = <
-   &none &none &none &none &none &none &none &none &none &none &none &none
-   &none &none &none &none &none &none &none &none &none &none &none &none
-   &none &none &none &none &none &none &none &none &none &none &none &none
-                     &none &none &none &none &none &none
+   &none &none &none &none &none &none                               &none &none      &none      &none     &none     &none
+   &none &none &none &none &none &none                               &none &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI  &none
+   &none &none &none &none &none &none                               &none &none      &none      &none     &kp RALT  &none
+                     &none &none &none                               &none &none &none
                         >;
                 };
 
                 fun_layer {
                         bindings = <
-   &none &none &none &none &none &none &none &none &none &none &none &none
-   &none &none &none &none &none &none &none &none &none &none &none &none
-   &none &none &none &none &none &none &none &none &none &none &none &none
-                     &none &none &none &none &none &none
+   &none &none &none &none &none &none                               &none &none      &none      &none     &none     &none
+   &none &none &none &none &none &none                               &none &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI  &none
+   &none &none &none &none &none &none                               &none &none      &none      &none     &kp RALT  &none
+                     &none &none &none                               &none &none &none
                         >;
                 };
         };
