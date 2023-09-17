@@ -24,41 +24,57 @@
 #define RIGHT_KEYS 6 7 8 9 10 18 19 20 21 22 30 31 32 33 34  // right-hand keys
 #define THUMBS 36 37 38 39 40 41  // thumbs
 
+#define TAPPING_TERM 280
+#define QUICK_TAP 175
+
+#define U_RDO &kp LC(Y)
+#define U_PST &kp LC(V)
+#define U_CPY &kp LC(C)
+#define U_CUT &kp LC(X)
+#define U_UND &kp LC(Z)
+
 / {
         behaviors {
           u_mt_l: u_mt_l {
             compatible = "zmk,behavior-hold-tap";
-            label = "u_mt_l";
             #binding-cells = <2>;
-            tapping_term_ms = <200>;
- //           quick-tap-ms = <125>;
+            label = "u_mt_l";
             flavor = "balanced";
+            tapping_term_ms = <TAPPING_TERM>;
+            quick-tap-ms = <QUICK_TAP>;
+            global-quick-tap;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <RIGHT_KEYS THUMBS>;
             hold-trigger-on-release;
-  //          global-quick-tap;
           };
           u_mt_r: u_mt_r {
             compatible = "zmk,behavior-hold-tap";
             label = "u_mt_r";
             #binding-cells = <2>;
-            tapping_term_ms = <200>;
-//            quick-tap-ms = <125>;
+            tapping_term_ms = <TAPPING_TERM>;
+            quick-tap-ms = <QUICK_TAP>;
+            global-quick-tap;
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <LEFT_KEYS THUMBS>;
             hold-trigger-on-release;
-//            global-quick-tap;
           };
           u_lt: u_lt {
             compatible = "zmk,behavior-hold-tap";
             label = "u_lt";
             #binding-cells = <2>;
-            tapping_term_ms = <200>;
-            quick-tap-ms = <200>;
+            tapping_term_ms = <TAPPING_TERM>;
+            quick-tap-ms = <QUICK_TAP>;
             flavor = "balanced";
             bindings = <&mo>, <&kp>;
           };
+          u_caps_word: u_caps_word {
+            compatible = "zmk,behavior-mod-morph";
+            label = "u_caps_word";
+            #binding-cells = <0>;
+            bindings = <&caps_word>, <&kp CAPS>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+          }
         };
 
         keymap {
@@ -74,55 +90,55 @@
                 };
                 extra_layer {
                         bindings = <
-   &none &none &none &none &none &none &none &none &none &none &none &none
-   &none &none &none &none &none &none &none &none &none &none &none &none
-   &none &none &none &none &none &none &none &none &none &none &none &none
-                     &none &none &none &none &none &none
+   &none &none           &none           &none            &none            &none                  &none          &none            &none            &none             &none             &none
+   &none &none           &none           &none            &none            &none                  &none          &none            &none            &none             &none             &none
+   &none &none           &none           &none            &none            &none                  &none          &none            &none            &none             &none             &none
+                                         &none            &none            &none                  &none          &none            &none
                         >;
                 };
 
                 tap_layer {
                         bindings = <
-   &none &none &none &none &none &none &none &none &none &none &none &none
-   &none &none &none &none &none &none &none &none &none &none &none &none
-   &none &none &none &none &none &none &none &none &none &none &none &none
-                     &none &none &none &none &none &none
+   &none &none           &none           &none            &none            &none                  &none          &none            &none            &none             &none             &none
+   &none &none           &none           &none            &none            &none                  &none          &none            &none            &none             &none             &none
+   &none &none           &none           &none            &none            &none                  &none          &none            &none            &none             &none             &none
+                                         &none            &none            &none                  &none          &none            &none
                         >;
                 };
 
                 button_layer {
                         bindings = <
-   &none &none &none &none &none &none &none &none &none &none &none &none
-   &none &none &none &none &none &none &none &none &none &none &none &none
-   &none &none &none &none &none &none &none &none &none &none &none &none
-                     &none &none &none &none &none &none
+   &none &none           &none           &none            &none            &none                  &none          &none            &none            &none             &none             &none
+   &none &none           &none           &none            &none            &none                  &none          &none            &none            &none             &none             &none
+   &none &none           &none           &none            &none            &none                  &none          &none            &none            &none             &none             &none
+                                         &none            &none            &none                  &none          &none            &none
                         >;
                 };
 
                 nav_layer {
                         bindings = <
-   &none     &none     &none      &none      &none      &none        &none &none &none &none &none &none
-   &none     &kp LGUI  &kp LALT   &kp LCTRL  &kp LSHFT  &none        &none &none &none &none &none &none
-   &none     &none     &kp RALT   &none      &none      &none        &none &none &none &none &none &none
-                                  &none      &none      &none        &none &none &none
+   &none &none           &none           &none            &none            &none                  &kp INS        &kp HOME         &kp UP           &kp END           &kp PG_UP         &none
+   &none &kp LGUI        &kp LALT        &kp LCTRL        &kp LSHFT        &none                  &u_caps_word   &kp LEFT         &kp DOWN         &kp RIGHT         &kp PG_DN         &none
+   &none &none           &kp RALT        &none            &none            &none                  U_RDO          U_PST            U_CPY            U_CUT             U_UND             &none
+                                         &none            &none            &none                  &kp RET        &kp BSPC         &kp DEL
                         >;
                 };
 
                 mouse_layer {
                         bindings = <
-   &none     &none     &none      &none      &none      &none        &none &none &none &none &none &none
-   &none     &kp LGUI  &kp LALT   &kp LCTRL  &kp LSHFT  &none        &none &none &none &none &none &none
-   &none     &none     &kp RALT   &none      &none      &none        &none &none &none &none &none &none
-                                  &none      &none      &none        &none &none &none
+   &none &none           &none           &none            &none            &none                  &none &none &none &none &none &none
+   &none &kp LGUI        &kp LALT        &kp LCTRL        &kp LSHFT        &none                  &none &none &none &none &none &none
+   &none &none           &kp RALT        &none            &none            &none                  &none &none &none &none &none &none
+                                         &none            &none            &none                  &none &none &none
                         >;
                 };
 
                 media_layer {
                         bindings = <
-   &none     &none     &none      &none      &none      &none        &none       &none         &none         &none         &none         &none
-   &none     &kp LGUI  &kp LALT   &kp LCTRL  &kp LSHFT  &none        &none       &kp C_PREV    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_NEXT    &none
-   &none     &none     &kp RALT   &none      &none      &none        &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &none
-                                  &none      &none      &none        &kp C_STOP  &kp C_PP      &kp C_MUTE
+   &none &none           &none           &none            &none            &none                  &none       &none         &none         &none         &none         &none
+   &none &kp LGUI        &kp LALT        &kp LCTRL        &kp LSHFT        &none                  &none       &kp C_PREV    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_NEXT    &none
+   &none &none           &kp RALT        &none            &none            &none                  &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &none
+                                         &none            &none            &none                  &kp C_STOP  &kp C_PP      &kp C_MUTE
                         >;
                 };
 
